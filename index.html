@@ -1,17 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>TrendWispher</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>TrendWispher - GenAI Fashion Outfit Generator</title>
 </head>
 <body>
-  <div class="container">
-    <h1>TrendWispher</h1>
-    <h2>The future of fashion</h2>
-    <div class="login-signup">
-      <a href="javascript:void(0);" onclick="signInWithGoogle()">Login with Google</a>
-      <a href="signup.html">Sign Up</a>
+  <header>
+    <div class="logo">
+      <!-- <img src="" alt="TrendWispher Logo"> -->
+      <h1>TrendWispher</h1>
     </div>
-  </div>
+    <div class="tagline">
+      <p>Your Fashion, AI-Powered</p>
+    </div>
+  </header>
+  
+  <main>
+    <div class="auth-container">
+        <div class="auth-text">
+          <p>Authenticate to use the chat tool.</p>
+        </div>
+        <button class="auth-button google" onclick="signInWithGoogle()">
+          <img src="images/google-logo.png" alt="Google Logo">
+          Sign in with Google
+        </button>
+      </div>
+
+    <!-- <section class="team"> -->
+            <div class="team">
+                <h2>Team Members</h2>
+                <div class="member">
+                  <img src="images/founder1.jpg" alt="Founder 1">
+                  <p>Lalit Kumar</p>
+                </div>
+                <div class="member">
+                  <img src="images/founder2.jpg" alt="Founder 2">
+                  <p>Swapnil Kumar Sahu</p>
+                </div>
+                <div class="member">
+                  <img src="images/founder3.jpg" alt="Founder 3">
+                  <p>Deepak Das</p>
+                </div>
+            </div>
+    <!-- </section> -->
+  </main>
+  
+  <footer>
+    <section class="feedback">
+        <h2>Feedback</h2>
+        <p>We'd love to hear your thoughts! Share your feedback with us.</p>
+        <div class="feedback-form">
+          <textarea placeholder="Your Feedback"></textarea>
+          <button class="submit-button">Submit Feedback</button>
+        </div>
+      </section>
+    
+  </footer>
+
+  <script src="scripts.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script>
+  // Initialize Firebase
+    const firebaseConfig = {
+    apiKey: "AIzaSyAtRTgINyW92b3cyHn8BoU4tRqdi9Wgy_c",
+    authDomain: "trendwishpher.firebaseapp.com",
+    projectId: "trendwishpher",
+    storageBucket: "trendwishpher.appspot.com",
+    messagingSenderId: "468308201980",
+    appId: "1:468308201980:web:ebd35670a3ac0aec38a279",
+    measurementId: "G-S83DYLBXX4"
+    };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 </body>
 </html>
