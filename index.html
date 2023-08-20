@@ -52,16 +52,21 @@
         <h2>Feedback</h2>
         <p>We'd love to hear your thoughts! Share your feedback with us.</p>
         <div class="feedback-form">
-          <textarea placeholder="Your Feedback"></textarea>
-          <button class="submit-button">Submit Feedback</button>
+            <textarea id="feedback-input" placeholder="Your Feedback"></textarea>
+            <button class="submit-button" onclick="submitFeedback()">Submit Feedback</button>
         </div>
       </section>
+       <!-- Pop-up notification -->
+  <div class="popup" id="popup-notification">
+    <p>Thank you for your feedback!</p>
+  </div>
     
   </footer>
 
   <script src="scripts.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script>
   // Initialize Firebase
     const firebaseConfig = {
@@ -74,6 +79,9 @@
     measurementId: "G-S83DYLBXX4"
     };
   firebase.initializeApp(firebaseConfig);
+
+    // Reference to your Firestore database
+    var db = firebase.firestore();
 </script>
 
 </body>

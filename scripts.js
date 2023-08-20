@@ -16,3 +16,55 @@ function signInWithGoogle() {
       console.error("Google sign-in error:", error);
     });
 }
+
+function showPopup() {
+  var popup = document.getElementById("popup-notification");
+  popup.style.display = "block";
+  setTimeout(function() {
+    popup.style.display = "none";
+  }, 3000); // Hide after 3 seconds
+}
+
+function submitFeedback() {
+  var feedbackInput = document.getElementById("feedback-input").value;
+  if (feedbackInput.trim() !== "") {
+    db.collection("feedback").add({
+      text: feedbackInput,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(function() {
+      // Show popup after storing feedback
+      showPopup();
+    })
+    .catch(function(error) {
+      console.error("Error adding feedback: ", error);
+    });
+  }
+}
+
+
+
+
+// function showPopup() {
+//   // ... Previous popup code ...
+//   var popup = document.getElementById("popup-notification");
+//   popup.style.display = "block";
+//   setTimeout(function() {
+//     popup.style.display = "none";
+//   }, 3000);
+//   // Store feedback in Firestore
+//   var feedbackInput = document.getElementById("feedback-input").value;
+//   if (feedbackInput.trim() !== "") {
+//     db.collection("feedback").add({
+//       text: feedbackInput,
+//       timestamp: firebase.firestore.FieldValue.serverTimestamp()
+//     })
+//     .then(function() {
+//       // Show popup after storing feedback
+//       showPopup();
+//     })
+//     .catch(function(error) {
+//       console.error("Error adding feedback: ", error);
+//     });
+//   }
+// }
