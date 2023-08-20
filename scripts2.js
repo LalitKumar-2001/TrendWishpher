@@ -1,3 +1,7 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js'
+    // Add Firebase products that you want to use
+import { getAuth } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-auth.js'
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.2.0/firebase-firestore.js'
 // JavaScript code to handle chat interactions will go here
 // Function to extract URL parameter
 function getParameterByName(name, url) {
@@ -49,13 +53,24 @@ function getParameterByName(name, url) {
 //   updateTextDisplay(textFromServer);
 // });
 
-
-
+const firebaseConfig = {
+  apiKey: "AIzaSyAtRTgINyW92b3cyHn8BoU4tRqdi9Wgy_c",
+  authDomain: "trendwishpher.firebaseapp.com",
+  projectId: "trendwishpher",
+  storageBucket: "trendwishpher.appspot.com",
+  messagingSenderId: "468308201980",
+  appId: "1:468308201980:web:ebd35670a3ac0aec38a279",
+  measurementId: "G-S83DYLBXX4"
+  };
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
+var queriesCollection = db.collection("queries");
 
 // Function to send queries and update UI with response
 function sendQueryAndDisplayResponse(query) {
   // Send the query to Firestore and listen for changes
   var queryRef = db.collection("queries").doc();
+
   queryRef.set({ query: query });
 
   // Listen for changes in the response document
@@ -64,10 +79,10 @@ function sendQueryAndDisplayResponse(query) {
     updateTextDisplay(response);
   });
 }
+var queryInput = document.getElementById("query-input");
 
 // Listen for query button click
 document.getElementById("query-button").addEventListener("click", function() {
-  var queryInput = document.getElementById("query-input");
   var query = queryInput.value.trim();
   if (query !== "") {
     sendQueryAndDisplayResponse(query);
@@ -80,4 +95,37 @@ document.addEventListener("DOMContentLoaded", function() {
   if (userInfo) {
     updateUserProfile(JSON.parse(userInfo));
   }
+});
+
+// Reference to the text display element
+var textDisplay = document.getElementById("text-from-server");
+
+// Reference to the Firestore collection where queries and replies are stored
+
+
+// Function to display text messages on the webpage
+function displayTextMessage(text) {
+  var messageElement = document.createElement("p");
+  messageElement.textContent = text;
+  textDisplay.appendChild(messageElement);
+}
+
+// Set up Firestore listener to watch for changes in the queries collection
+queriesCollection.onSnapshot(function(snapshot) {
+  snapshot.docChanges().forEach(function(change) {
+    if (change.type === "added") {
+      var queryData = change.doc.data();
+      // Check if the query has a reply
+      if (queryData.reply) {
+        var replyText = queryData.reply;
+        displayTextMessage(replyText);
+      }
+    }
+  });
+});
+
+// Create a new document in the queries collection
+queriesCollection.add({
+  query: queryInput,
+  reply: "This is the reply to your query." // Replace with the actual reply
 });
