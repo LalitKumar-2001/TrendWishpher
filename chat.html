@@ -13,17 +13,52 @@
       <h1>TrendWispher</h1>
     </div>
     <div class="profile">
-        <img id="profile-image" src="path/to/default-profile-image.png" alt="User Profile">
+        <img id="profile-image" src="images/founder1.jpg" alt="User Profile">
         <p id="user-name">Guest</p>
       </div>
   </header>
   
   <main>
-    <section class="chat-container">
-      <!-- Chat prompts and answers will be dynamically added here -->
+    <section class="text-display">
+        <!-- Text from the server will be displayed here -->
+        <div id="text-from-server"></div>
     </section>
+      
+      <!-- Placeholder at the bottom -->
+      <!-- <div class="placeholder"></div>
+      <input type="text" id="query-input" placeholder="Enter your query">
+    <button id="query-button">Submit</button> -->
+
+    <!-- Placeholder with input for user queries -->
+    <div class="placeholder">
+      <div class="input-container">
+        <input type="text" id="query-input" placeholder="Type your query...">
+        <button id="query-button">
+          <img src="images/submit-icon.png" alt="Submit">
+        </button>
+      </div>
+    </div>
   </main>
 
   <script src="scripts2.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+  // Initialize Firebase
+    const firebaseConfig = {
+    apiKey: "AIzaSyAtRTgINyW92b3cyHn8BoU4tRqdi9Wgy_c",
+    authDomain: "trendwishpher.firebaseapp.com",
+    projectId: "trendwishpher",
+    storageBucket: "trendwishpher.appspot.com",
+    messagingSenderId: "468308201980",
+    appId: "1:468308201980:web:ebd35670a3ac0aec38a279",
+    measurementId: "G-S83DYLBXX4"
+    };
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+    // Reference to the text display element
+    var textDisplay = document.getElementById("text-from-server");
+
+</script>
 </body>
 </html>

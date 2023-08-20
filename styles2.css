@@ -1,43 +1,88 @@
 /* Reset some default styles */
 body, h1, p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Global styles */
-  body {
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Header */
-  header {
-    background-color: #f5f5f5;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo img {
-    max-width: 50px;
-  }
-  
-  .profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-  
-  /* Main content */
-  main {
-    padding: 20px;
-  }
-  
-  .chat-container {
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    padding: 20px;
-  }
-  
-  /* ... Additional styling for chat prompts and answers ... */
-  
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  background-color: #f5f5f5;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 50px;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Main content */
+main {
+  padding: 20px;
+  padding-bottom: 80px; /* Add space for placeholder and submit button */
+  /* Use padding-bottom to make space for the placeholder */
+}
+
+/* Area for displaying text from the server */
+.text-display {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 30px;
+  min-height: 300px; /* Minimum height to display text */
+}
+
+/* Placeholder */
+.placeholder {
+  background-color: #f9f9f9;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container {
+  flex: 1;
+  max-width: 80%; /* Adjust the maximum width as needed */
+  background-color: white;
+  border-radius: 25px;
+  padding: 8px 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+}
+
+#query-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+}
+
+#query-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Center submit icon vertically */
+.input-container img {
+  vertical-align: middle;
+}
