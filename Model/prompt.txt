@@ -1,0 +1,4 @@
+<<UUID>>
+Imagine you're helping a fashionable Indian customer. They are [Age] years old and identify as [Gender]. They're looking for a stylish outfit for the [Season] season in [Place]. They prefer a [Styles] style with a touch of [Theme] theme. Could you suggest an outfit that would suit their preferences? Also, don't forget to recommend some [Accessories] to complete the look!
+
+
